@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj": {}
+    "D:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj": {}
   },
   "projects": {
-    "E:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj": {
+    "D:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj",
+        "projectUniqueName": "D:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj",
         "projectName": "AVLTree",
-        "projectPath": "E:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj",
+        "projectPath": "D:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\AVLTree.csproj",
         "packagesPath": "C:\\Users\\izmir\\.nuget\\packages\\",
-        "outputPath": "E:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\obj\\",
+        "outputPath": "D:\\SAE\\1sem\\4F01\\AVLTree\\AVLTree\\AVLTreeSol\\AVLTree\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\izmir\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -55,7 +55,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
         }
       }
     }
