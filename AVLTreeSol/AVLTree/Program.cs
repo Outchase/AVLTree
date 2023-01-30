@@ -10,7 +10,7 @@ namespace AVLTree
             Node root = null;
             Tree tree = new Tree();
             Random random = new Random();
-            int size = 50000;
+            int size = 10;
             int[] numbers = new int[size];
 
             Stopwatch timer = new Stopwatch();
