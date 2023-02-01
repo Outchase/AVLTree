@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace AVLTree
 {
-    internal class Node
+    public class Node
     {
-        public int Value;
-        public Node Left;
-        public Node Right;
-        public Node Parent;
+        public int key;
+
+        public Node left;
+        public Node right;
+
+        //constructor that takes key arguement
+        public Node(int item)
+        {
+            key = item;
+            left = right = null;
+        }
     }
 }

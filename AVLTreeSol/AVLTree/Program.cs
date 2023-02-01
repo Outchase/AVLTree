@@ -7,10 +7,17 @@ namespace AVLTree
     {
         static void Main(string[] args)
         {
-            Node root = null;
-            Tree tree = new Tree();
+            BST tree = new BST();
+            //Node root = null;
+            //BTS tree = new BTS();
+            
+            
             Random random = new Random();
+
+            Console.Write("Enter the number of nodes to be insert: ");
+
             int size = 10;
+
             int[] numbers = new int[size];
 
             Stopwatch timer = new Stopwatch();
@@ -22,7 +29,7 @@ namespace AVLTree
             //gererate random numbers (max range 5000)and insert to array
             for (int i = 0; i < numbers.Length; i++)
             {
-                numbers[i] = random.Next(2000);
+                numbers[i] = random.Next(100);
             }
             //stop timer
             timer.Stop();
@@ -36,7 +43,8 @@ namespace AVLTree
             //loading data into tree
             for (int i = 0; i < numbers.Length; i++)
             {
-               root=  tree.insert(root, numbers[i]);
+                //Console.WriteLine(i);
+                tree.Insert(numbers[i]);
             }
 
             //stop new timer
@@ -44,7 +52,7 @@ namespace AVLTree
             Console.WriteLine("It took " + timer.ElapsedMilliseconds + " milliseconds.");
 
             //Console.WriteLine(numbers[0]);
-            tree.Traverse(root);
+            tree.Traverse();
 
         }
     }
