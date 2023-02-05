@@ -59,7 +59,7 @@ namespace AVLTree
             int test = 1;
             while (tree.root == null)
             {
-                tree.Search(test);
+                tree.Query(test);
                 test++;
 
             }

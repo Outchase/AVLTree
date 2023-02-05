@@ -9,6 +9,7 @@ namespace AVLTree
     public class Node
     {
         public int key;
+        public int height;
 
         public Node left;
         public Node right;
@@ -17,7 +18,7 @@ namespace AVLTree
         public Node(int item)
         {
             key = item;
-            left = right = null;
+            height = 1;
         }
     }
 }
