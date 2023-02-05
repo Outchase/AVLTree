@@ -10,8 +10,8 @@ namespace AVLTree
             BST tree = new BST();
             //Node root = null;
             //BTS tree = new BTS();
-            
-            
+
+
             Random random = new Random();
 
             Console.Write("Enter the number of nodes to be insert: ");
@@ -54,6 +54,7 @@ namespace AVLTree
             //Console.WriteLine(numbers[0]);
             tree.Traverse();
 
+            Console.WriteLine(tree.Search(10));
         }
     }
 }

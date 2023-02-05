@@ -16,8 +16,11 @@ namespace AVLTree
         public BST() { root = null; }
         public BST(int value) { root = new Node(value); }
 
-        // This method mainly calls insertRec()
+        // This method mainly calls InsertRec()
         public void Insert(int key) { root = InsertRecu(root, key); }
+
+        // This method mainly calls SearchKey()
+        public void Search(int key) { root = SearchKey(root, key); }
 
         // This method mainly calls InorderRec()
         public void Traverse() { InorderRecu(root); }
