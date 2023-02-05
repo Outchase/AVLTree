@@ -72,7 +72,7 @@ namespace AVLTree
 
         }
 
-        // utility function doing inorder traversal of BST
+        //utility function doing inorder traversal of BST
         void InorderRecu(Node root)
         {
 
@@ -84,6 +84,5 @@ namespace AVLTree
                 InorderRecu(root.right);
             }
         }
-
     }
 }

@@ -40,10 +40,11 @@ namespace AVLTree
             Console.WriteLine("The tree will be filled with data.");
             timer = Stopwatch.StartNew();
 
+            //tree.Insert(10);
+
             //loading data into tree
             for (int i = 0; i < numbers.Length; i++)
             {
-                //Console.WriteLine(i);
                 tree.Insert(numbers[i]);
             }
 
@@ -54,7 +55,19 @@ namespace AVLTree
             //Console.WriteLine(numbers[0]);
             tree.Traverse();
 
-            Console.WriteLine(tree.Search(10));
+            //just testing purpose
+            int test = 1;
+            while (tree.root == null)
+            {
+                tree.Search(test);
+                test++;
+
+            }
+
+            Console.WriteLine("\n" + tree.root.key);
+            tree.Insert(50);
+            tree.Traverse();
+
         }
     }
 }
