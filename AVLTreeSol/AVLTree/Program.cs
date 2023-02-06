@@ -8,15 +8,13 @@ namespace AVLTree
         static void Main(string[] args)
         {
             BST tree = new BST();
-            //Node root = null;
-            //BTS tree = new BTS();
-
-
             Random random = new Random();
 
             Console.Write("Enter the number of nodes to be insert: ");
 
             int size = 10;
+            int searchKey = 60;
+
 
             int[] numbers = new int[size];
 
@@ -50,24 +48,24 @@ namespace AVLTree
 
             //stop new timer
             timer.Stop();
-            Console.WriteLine("It took " + timer.ElapsedMilliseconds + " milliseconds.");
+            Console.WriteLine("It took " + timer.ElapsedMilliseconds + " milliseconds.\n");
 
-            //Console.WriteLine(numbers[0]);
+            /*Console.WriteLine("Before query "+searchKey);
+            tree.Insert(50);*/
             tree.Traverse();
 
-            //just testing purpose
-            int test = 1;
-            while (tree.root == null)
+            /*Console.WriteLine("\nAfter query " + searchKey);
+            tree.Query(searchKey);
+            tree.Traverse();
+
+            if (tree.searchRoot == null)
             {
-                tree.Query(test);
-                test++;
-
+                Console.WriteLine("\n\nQuery not found ");
             }
-
-            Console.WriteLine("\n" + tree.root.key);
-            tree.Insert(50);
-            tree.Traverse();
-
+            else
+            {
+                Console.WriteLine("\n\nQuery found " + tree.searchRoot.key);
+            }*/
         }
     }
 }
