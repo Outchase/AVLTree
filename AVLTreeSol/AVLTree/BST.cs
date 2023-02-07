@@ -20,6 +20,7 @@ namespace AVLTree
 
         // This method mainly calls InsertRec()
         public void Insert(int key) { root = InsertRecu(root, key); }
+        public void Delete(int key) { root = DeleteNode(root, key); }
 
         // This method mainly calls SearchKey()
         public void Query(int key) { searchRoot = SearchKey(root, key); }
@@ -152,50 +153,59 @@ namespace AVLTree
 
         }
 
-        /* Given a non-empty binary search tree, return the
-node with minimum key value found in that tree.
-Note that the entire tree does not need to be
-searched.
-        Node minValueNode(Node node)
+        //Non-empty binary search tree, return the node with minimum key found in that tree.
+
+        //Note: The entire tree does not need to be searched
+        Node MinValueNode(Node root)
         {
-            Node current = node;
+            Node minKey = root;
 
-            // loop down to find the leftmost leaf 
-            while (current.left != null)
-                current = current.left;
+            //loop to find the leftmost leaf 
+            while (minKey.left != null)
+            {
+                minKey = minKey.left;
+            }
 
-            return current;
+            //return the node with minimum key
+            return minKey;
         }
 
-        Node deleteNode(Node root, int key)
+        Node DeleteNode(Node root, int key)
         {
             // STEP 1: PERFORM STANDARD BST DELETE
             if (root == null)
+            {
                 return root;
+            }
 
-            // If the key to be deleted is smaller than
-            // the root's key, then it lies in left subtree
+            //If the deleted key is smaller than the root key, it is located in the left subtree.
             if (key < root.key)
-                root.left = deleteNode(root.left, key);
+            {
+                root.left = DeleteNode(root.left, key);
+            }
 
-            // If the key to be deleted is greater than the
-            // root's key, then it lies in right subtree
+            //If the removed key is bigger than the root key, it is in the right subtree.
             else if (key > root.key)
-                root.right = deleteNode(root.right, key);
+            {
+                root.right = DeleteNode(root.right, key);
+            }
 
-            // if key is same as root's key, then this is the node
-            // to be deleted
+            //If key matches root's key, this node will be deleted.
             else
             {
 
-                // node with only one child or no child
+                //node with only one child or no child
                 if ((root.left == null) || (root.right == null))
                 {
                     Node temp = null;
                     if (temp == root.left)
+                    {
                         temp = root.right;
+                    }
                     else
+                    {
                         temp = root.left;
+                    }
 
                     // No child case
                     if (temp == null)
@@ -203,64 +213,68 @@ searched.
                         temp = root;
                         root = null;
                     }
-                    else // One child case
-                        root = temp; // Copy the contents of
-                                     // the non-empty child
+
+                    // One child case
+                    else
+                    {
+                        root = temp; // Copy the contents of the non-empty child
+                    }
                 }
                 else
                 {
+                    //node with two children: Obtain the inorder descendant (smallest in the subtree)
+                    Node temp = MinValueNode(root.right);
 
-                    // node with two children: Get the inorder
-                    // successor (smallest in the right subtree)
-                    Node temp = minValueNode(root.right);
-
-                    // Copy the inorder successor's data to this node
+                    //Copy the data from the inorder descendant to this node
                     root.key = temp.key;
 
-                    // Delete the inorder successor
-                    root.right = deleteNode(root.right, temp.key);
+                    //Delete the inorder descendant
+                    root.right = DeleteNode(root.right, temp.key);
                 }
             }
 
-            // If the tree had only one node then return
+            //If the tree had only one node then return
             if (root == null)
+            {
                 return root;
+            }
 
-            // STEP 2: UPDATE HEIGHT OF THE CURRENT NODE
-            root.height = max(height(root.left),
-                        height(root.right)) + 1;
+            //2. Update height of this ancestor node
+            root.height = 1 + Max(Height(root.left), Height(root.right)) /*+ 1*/;
 
-            // STEP 3: GET THE BALANCE FACTOR
-            // OF THIS NODE (to check whether
-            // this node became unbalanced)
-            int balance = getBalance(root);
+            //3.  Get this ancestor node's balance factor to see whether it got imbalanced
+            int balance = GetBalance(root);
 
-            // If this node becomes unbalanced,
-            // then there are 4 cases
+            //If this node becomes unbalanced, then there are 4 cases:
+
             // Left Left Case
-            if (balance > 1 && getBalance(root.left) >= 0)
-                return rightRotate(root);
+            if (balance > 1 && GetBalance(root.left) >= 0)
+            {
+                return RightRotate(root);
+            }
 
             // Left Right Case
-            if (balance > 1 && getBalance(root.left) < 0)
+            if (balance > 1 && GetBalance(root.left) < 0)
             {
-                root.left = leftRotate(root.left);
-                return rightRotate(root);
+                root.left = LeftRotate(root.left);
+                return RightRotate(root);
             }
 
             // Right Right Case
-            if (balance < -1 && getBalance(root.right) <= 0)
-                return leftRotate(root);
+            if (balance < -1 && GetBalance(root.right) <= 0)
+            {
+                return LeftRotate(root);
+            }
 
             // Right Left Case
-            if (balance < -1 && getBalance(root.right) > 0)
+            if (balance < -1 && GetBalance(root.right) > 0)
             {
-                root.right = rightRotate(root.right);
-                return leftRotate(root);
+                root.right = RightRotate(root.right);
+                return LeftRotate(root);
             }
 
             return root;
-        }*/
+        }
 
         //utility function doing inorder traversal of BST
         void InorderRecu(Node root)

@@ -13,7 +13,7 @@ namespace AVLTree
             Console.Write("Enter the number of nodes to be insert: ");
 
             int size = 10;
-            int searchKey = 60;
+            int testKey = 50;
 
 
             int[] numbers = new int[size];
@@ -50,12 +50,13 @@ namespace AVLTree
             timer.Stop();
             Console.WriteLine("It took " + timer.ElapsedMilliseconds + " milliseconds.\n");
 
-            /*Console.WriteLine("Before query "+searchKey);
-            tree.Insert(50);*/
+            /*Console.WriteLine("Before query "+testKey);*/
+            Console.WriteLine("Before delete "+testKey);
+            tree.Insert(50);
             tree.Traverse();
 
-            /*Console.WriteLine("\nAfter query " + searchKey);
-            tree.Query(searchKey);
+            /*Console.WriteLine("\nAfter query " + testKey);
+            tree.Query(testKey);
             tree.Traverse();
 
             if (tree.searchRoot == null)
@@ -66,6 +67,10 @@ namespace AVLTree
             {
                 Console.WriteLine("\n\nQuery found " + tree.searchRoot.key);
             }*/
+
+            Console.WriteLine("\n\nAfter delete " + testKey);
+            tree.Delete(testKey);
+            tree.Traverse();
         }
     }
 }
