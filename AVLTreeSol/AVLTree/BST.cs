@@ -9,7 +9,7 @@ namespace AVLTree
 {
     public class BST
     {
-
+        //Key can also mean Node like in arrays or assiociate arrays
         //Root of BST
         public Node root;
         public Node searchRoot;
@@ -20,7 +20,8 @@ namespace AVLTree
 
         // This method mainly calls InsertRec()
         public void Insert(int key) { root = InsertRecu(root, key); }
-        public void Delete(int key) { root = DeleteNode(root, key); }
+        // This method mainly calls DeleteKey()
+        public void Delete(int key) { root = DeleteKey(root, key); }
 
         // This method mainly calls SearchKey()
         public void Query(int key) { searchRoot = SearchKey(root, key); }
@@ -170,7 +171,7 @@ namespace AVLTree
             return minKey;
         }
 
-        Node DeleteNode(Node root, int key)
+        Node DeleteKey(Node root, int key)
         {
             // STEP 1: PERFORM STANDARD BST DELETE
             if (root == null)
@@ -181,13 +182,13 @@ namespace AVLTree
             //If the deleted key is smaller than the root key, it is located in the left subtree.
             if (key < root.key)
             {
-                root.left = DeleteNode(root.left, key);
+                root.left = DeleteKey(root.left, key);
             }
 
             //If the removed key is bigger than the root key, it is in the right subtree.
             else if (key > root.key)
             {
-                root.right = DeleteNode(root.right, key);
+                root.right = DeleteKey(root.right, key);
             }
 
             //If key matches root's key, this node will be deleted.
@@ -229,7 +230,7 @@ namespace AVLTree
                     root.key = temp.key;
 
                     //Delete the inorder descendant
-                    root.right = DeleteNode(root.right, temp.key);
+                    root.right = DeleteKey(root.right, temp.key);
                 }
             }
 
