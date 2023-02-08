@@ -14,6 +14,10 @@ namespace AVLTree
         public Node root;
         public Node searchRoot;
 
+        //Delegates
+        public delegate void AVLOrder();
+        public delegate void AVLfunc(int key);
+
         //Cosntructor
         public BST() { root = null; }
         public BST(int value) { root = new Node(value); }

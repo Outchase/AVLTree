@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using static AVLTree.BST;
 
 namespace AVLTree
 {
@@ -15,8 +16,12 @@ namespace AVLTree
             int size = 10;
             int testKey = 50;
 
-
             int[] numbers = new int[size];
+
+            AVLOrder order = new AVLOrder(tree.Traverse);
+            AVLfunc insert = new AVLfunc(tree.Insert);
+            AVLfunc search = new AVLfunc(tree.Query);
+            AVLfunc delete = new AVLfunc(tree.Delete);
 
             Stopwatch timer = new Stopwatch();
 
@@ -43,21 +48,25 @@ namespace AVLTree
             //loading data into tree
             for (int i = 0; i < numbers.Length; i++)
             {
-                tree.Insert(numbers[i]);
+                insert(numbers[i]);
+                //tree.Insert(numbers[i]);
             }
 
             //stop new timer
             timer.Stop();
             Console.WriteLine("It took " + timer.ElapsedMilliseconds + " milliseconds.\n");
 
-            /*Console.WriteLine("Before query "+testKey);*/
-            Console.WriteLine("Before delete "+testKey);
-            tree.Insert(50);
-            tree.Traverse();
+            /*Console.WriteLine("Before delete "+testKey);
+            //tree.Insert(50);
+            insert(50);
+            order();*/
 
-            /*Console.WriteLine("\nAfter query " + testKey);
-            tree.Query(testKey);
-            tree.Traverse();
+
+            Console.WriteLine("Query " + testKey);
+            //insert(50);
+            search(testKey);
+            //tree.Query(testKey);
+            order();
 
             if (tree.searchRoot == null)
             {
@@ -66,11 +75,13 @@ namespace AVLTree
             else
             {
                 Console.WriteLine("\n\nQuery found " + tree.searchRoot.key);
-            }*/
+            }
 
-            Console.WriteLine("\n\nAfter delete " + testKey);
-            tree.Delete(testKey);
-            tree.Traverse();
+            /*Console.WriteLine("\n\nAfter delete " + testKey);
+            delete(testKey);
+            //tree.Delete(testKey);
+            order();*/
+
         }
     }
 }
