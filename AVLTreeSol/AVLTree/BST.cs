@@ -288,8 +288,8 @@ namespace AVLTree
             //Console.WriteLine(root);
             if (root != null)
             {
-                Console.Write(root.key + " ");
                 InorderRecu(root.left);
+                Console.Write(root.key + " ");
                 InorderRecu(root.right);
             }
         }
@@ -311,7 +311,7 @@ namespace AVLTree
             return root.height;
         }
 
-        // Get Balance factor of node N
+        // Get Balance factor of node ¨root
         int GetBalance(Node root)
         {
             if (root == null)
